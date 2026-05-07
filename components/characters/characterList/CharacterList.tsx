@@ -1,0 +1,38 @@
+import { IChar } from "@/types/IChar";
+import { CharacterCard } from "../characterCard/characterCard";
+
+interface Props {
+  characters: IChar[];
+}
+
+export const CharacterList: React.FC<Props> = ({ characters }) => {
+  return (
+    <div
+      className="
+        grid
+        grid-cols-1
+        col-span-full
+        sm:grid-cols-2
+        lg:grid-cols-3
+        lg:col-span-9
+        max-w-full
+        lg:px-8
+        lg:mx-0
+        w-full
+        justify-center
+        items-center
+        mx-auto
+        gap-y-7
+        gap-x-6
+        "
+    >
+      {characters.length !== 0 ? (
+        characters.map((character) => (
+          <CharacterCard character={character} key={character.id} />
+        ))
+      ) : (
+        <h1>Not found</h1>
+      )}
+    </div>
+  );
+};
