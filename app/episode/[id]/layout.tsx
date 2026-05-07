@@ -6,7 +6,7 @@ export default async function EpisodeLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
   const p = await params;
 
