@@ -7,6 +7,8 @@ import { getChars } from "@/api/services";
 import { SkeletonGrid } from "@/components/characters/characterCard/skeletonCard";
 import { Suspense } from "react";
 
+export const dynamic = "force-dynamic";
+
 async function CharactersContent({
   params,
 }: {
