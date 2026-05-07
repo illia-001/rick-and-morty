@@ -5,7 +5,6 @@ export default async function CharactersLayout({
   children,
 }: {
   children: React.ReactNode;
-  params: { id: string };
 }) {
   return (
     <>
