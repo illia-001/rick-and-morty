@@ -27,8 +27,7 @@ export default function Header() {
 
   return (
     <>
-      <header
-        className="sm:mb-6  h-17 sticky top-0 z-50 items-center bg-[#f8f9fa] py-2 box-border" >
+      <header className="sm:mb-6 h-17 sticky top-0 z-50 items-center bg-[#f8f9fa] py-2 box-border">
         <div className="flex justify-between mx-auto items-center px-4 h-full max-w-300">
           <Link
             href={"/"}
@@ -52,7 +51,11 @@ export default function Header() {
           <Navigation />
         </div>
       </header>
-      <BurgerMenu isOpen={isMenuOpen} navigation={navigation} styles={styles} />
+        <BurgerMenu
+          isOpen={isMenuOpen}
+          navigation={navigation}
+          styles={styles}
+        />
     </>
   );
 }

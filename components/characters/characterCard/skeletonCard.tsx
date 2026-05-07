@@ -12,7 +12,7 @@ function SkeletonCard() {
         relative"
     >
       <div className="relative aspect-square w-full">
-        <Skeleton className="h-60 w-full rounded-none" />
+        <Skeleton className=" h-full rounded-none" />
       </div>
       <div className="p-2.5 gap-2 flex flex-col">
         <Skeleton className="h-4 w-20 mb-6" />

@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  justify-content: space-around;
+  background-color: #f8f9fa;
+  margin-bottom: 4px;
+  position: sticky;
+  top: 68px;
+  padding-inline: 16px;
+  padding-block: 12px;
+  width: -100%;
+  transition: all 300ms;
+}
+
+.open {
+  transform: translateY(0);
+  transition: all 300ms;
+  height: 60px;
+  z-index: 30;
+  box-shadow: 0 0 15px gray;
+  border-radius: 0 0 10px 10px;
+}
+
+.closed {
+  transform: translateY(-100);
+  transition: all 300ms;
+  height: 0;
+}
