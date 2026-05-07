@@ -1,3 +1,4 @@
+"use client";
 import { Accordion } from "@/components/ui/accordion";
 import { AccordionComponent } from "@/components/accordionComponents/accordionComponent";
 
