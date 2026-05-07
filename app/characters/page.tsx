@@ -21,7 +21,7 @@ async function CharactersContent({
     type?: string;
   };
 }) {
-  await new Promise((resolve) => setTimeout(resolve, 1500));
+  await new Promise((resolve) => setTimeout(resolve, 1000));
 
   const { name, status, gender, species, type, page } = params;
   const currentPage = Number(page) || 1;

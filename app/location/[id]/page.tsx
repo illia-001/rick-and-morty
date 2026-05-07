@@ -4,7 +4,7 @@ import { CharacterList } from "@/components/characters/characterList/CharacterLi
 import { Suspense } from "react";
 
 async function LocationContent({ id }: { id: number }) {
-  await new Promise((resolve) => setTimeout(resolve, 1500));
+  await new Promise((resolve) => setTimeout(resolve, 1000));
   const location = await getLocationById(id);
   const characters = await getCharsByIds(location.residents);
 

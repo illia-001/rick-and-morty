@@ -1,5 +1,6 @@
 "use client";
 
+import './menu.css';
 import cn from "classnames";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -16,10 +17,10 @@ const BurgerMenu: React.FC<Props> = ({ navigation, isOpen, styles }) => {
   return (
     <div
       className={cn(
-        "flex justify-around bg-[#f8f9fa] border-t mb-4 px-4 py-3 z-1 sm:hidden w-full duration-300 transition-all",
+        "container sm:hidden border-t",
         {
-          "translate-y-0 h-15 transition-all duration-300": isOpen,
-          "h-0 -translate-y-7 transition-all duration-300": !isOpen,
+          "open ": isOpen,
+          "closed": !isOpen,
         },
       )}
     >

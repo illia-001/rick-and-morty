@@ -5,7 +5,7 @@ import { getStatusStyle } from "@/utils/getStatusStyle";
 
 const CharacterPage = async ({ params }: { params: { id: number } }) => {
   const p = await params;
-  await new Promise((resolve) => setTimeout(resolve, 2000));
+  await new Promise((resolve) => setTimeout(resolve, 1000));
 
   const response: IChar = await getCharById(p.id);
 
