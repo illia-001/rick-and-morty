@@ -6,9 +6,7 @@ A project built on **Next.js 14+** that uses [The Rick and Morty API](https://ri
 
 - **Framework:** [Next.js](https://nextjs.org/) (App Router)
 - **Language:** [TypeScript](https://www.typescriptlang.org/)
-- **Styling:** CSS Modules / SCSS (or Tailwind, depending on your preference)
-- **Data Fetching:** Native Fetch API using Next.js caching & revalidation
-- **Icons:** Lucide React (if available)
+- **Styling:** CSS Modules / Tailwind
 
 ## Features
 
