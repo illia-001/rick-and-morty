@@ -24,8 +24,8 @@ export function PaginationComponent({ totalPages }: { totalPages: number }) {
 
   return (
     <div className="col-span-full">
-      <Pagination className={`my-8 w-full`}>
-        <PaginationContent className="w-full h-full justify-center gap-x-3">
+      <Pagination className={`my-8 max-w-full`}>
+        <PaginationContent className="max-w-full h-full justify-center gap-x-3">
           <PaginationItem>
             <PaginationPrevious
               size="xl"

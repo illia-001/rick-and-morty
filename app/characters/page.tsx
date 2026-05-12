@@ -21,27 +21,23 @@ async function CharactersContent({
     type?: string;
   };
 }) {
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-
   const { name, status, gender, species, type, page } = params;
   const currentPage = Number(page) || 1;
 
   let data = null;
-  let error = null;
 
   try {
     data = await getChars(name, status, gender, species, currentPage, type);
   } catch (e) {
     console.error("Data fetching error:", e);
-    error = e;
-  }
-
-  if (error) {
-    return <div>Сталася помилка при завантаженні даних</div>;
   }
 
   if (!data || !data.results || data.results.length === 0) {
-    return <div>No characters found</div>;
+    return (
+      <h1 className="text-center col-span-full lg:col-span-9 font-bold text-2xl">
+        No characters found!
+      </h1>
+    );
   }
 
   return (
