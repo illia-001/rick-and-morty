@@ -27,15 +27,15 @@ export default function Header() {
 
   return (
     <>
-      <header className="sm:mb-6 h-17 sticky top-0 z-50 items-center bg-[#f8f9fa] py-2 box-border">
+      <header className="mb-6 h-17 sticky top-0 z-50 items-center bg-[#f8f9fa] py-2 box-border">
         <div className="flex justify-between mx-auto items-center px-4 h-full max-w-300">
           <Link
-            href={"/"}
+            href={"/characters"}
             className="text-2xl font-semibold flex gap-2 flex-nowrap"
           >
-            Rick & Morty <p className="text-blue-500 p-0, m-0">WiKi</p>
+            Rick & Morty <strong className="text-blue-500 p-0, m-0">WiKi</strong>
           </Link>
-          <div className="sm:hidden">
+          <div className="sm:hidden cursor-pointer">``
             {isMenuOpen ? (
               <IoClose
                 size={40}
@@ -52,7 +52,8 @@ export default function Header() {
         </div>
       </header>
         <BurgerMenu
-          isOpen={isMenuOpen}
+        isOpen={isMenuOpen}
+        setIsOpen={setIsMenuOpen}
           navigation={navigation}
           styles={styles}
         />

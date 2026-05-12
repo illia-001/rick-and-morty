@@ -30,7 +30,7 @@ export const DropdownMenuCheckboxes: React.FC<Props> = ({
   const [isClicked, setIsClicked] = React.useState(false);
 
   return (
-    <div className="md:col-span-3 col-span-full mb-7">
+    <div className="lg:col-span-3 col-span-full mb-7">
       <div className="sticky top-25 flex flex-col items-center border-blue-500 border-2 p-4 rounded-xl">
         <span className="text-2xl mb-4">Pick {title}</span>
         <DropdownMenu>
@@ -42,7 +42,7 @@ export const DropdownMenuCheckboxes: React.FC<Props> = ({
                 onClick={() => setIsClicked((prev) => !prev)}
                 className="w-full rounded-none h-9 flex font-light justify-between"
               >
-                <span className="text-sm font-light w-full md:w-50 overflow-hidden">{episodeName}</span>
+                <span className="text-sm font-light w-full md:auto overflow-hidden">{episodeName}</span>
                 {isClicked ? <IoChevronUp /> : <IoChevronDown />}
               </Button>
             }
