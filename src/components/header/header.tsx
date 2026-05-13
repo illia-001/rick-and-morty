@@ -1,4 +1,6 @@
 "use client";
+
+import cn from "classnames";
 import Link from "next/link";
 import Navigation from "../navigation/navigation";
 import { useState } from "react";
@@ -29,14 +31,20 @@ export default function Header() {
   return (
     <>
       <header
-        className={`mb-6 h-17 sticky top-0 z-50 items-center py-2 box-border ${COLORS.BG.HEADER}`}
+        className={cn(
+          "h-17 sticky top-0 z-50 items-center py-2 box-border",
+          COLORS.BG.HEADER,
+          {
+            "shadow-lg": !isMenuOpen,
+          },
+        )}
       >
         <div className="flex justify-between mx-auto items-center px-4 h-full max-w-300">
           <Link
             href={"/"}
             className="text-2xl font-semibold flex gap-2 flex-nowrap"
           >
-            Rick & Morty{" "}
+            Rick & Morty
             <strong className={`${COLORS.TEXT.PRIMARY} p-0, m-0`}>WiKi</strong>
           </Link>
           <div className="sm:hidden cursor-pointer">
