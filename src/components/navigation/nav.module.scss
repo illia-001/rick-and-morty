@@ -1,0 +1,9 @@
+.active::after {
+  position: absolute;
+  content: '';
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  background-color: oklch(62.3% 0.214 259.815);
+  border-radius: 8px;
+}
