@@ -12,7 +12,7 @@ const FilterComponent = () => {
         >
           <h2 className="text-2xl font-bold text-center mb-4">Filters</h2>
           <Link
-            href={"/characters"}
+            href={"/"}
             className={`${COLORS.TEXT.PRIMARY} hover:underline mb-4`}
           >
             Clear filters

@@ -13,7 +13,7 @@ export const CharacterCard: React.FC<Props> = ({ character }) => {
   const { id, name, image, status, location } = character;
   return (
     <Link
-      href={`/${id}`}
+      href={`/character/${id}`}
       className={`
         hover:${COLORS.BORDER.PRIMARY}
         transition-all

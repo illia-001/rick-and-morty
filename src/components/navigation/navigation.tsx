@@ -9,7 +9,7 @@ const style =
   "h-full block text-xl font-semibold text-[#0000008c] hover:text-black items-center flex";
 const navigation = [
   {
-    link: "/characters",
+    link: "/",
     title: "Characters",
   },
   {

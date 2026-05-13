@@ -1,8 +1,31 @@
+'use client';
+
+import cn from "classnames";
+import { COLORS } from "../constatnts/colors";
+import styles from "./not-found.module.scss";
+import { redirect } from "next/navigation";
+
 export default function NotFoundPage() {
+  
+  const handleRedirect = () => {
+    redirect('/')
+  };
+
   return (
-    <div className="flex w-full justify-center flex-col items-center col-span-full">
-      <h1 className="text-4xl font-bold">404</h1>
-      <h2 className="text-2xl font-semibold">Page not found!</h2>
-    </div>
-  )
+      <div className={styles.wrapper}>
+        <div>
+          <span className={cn(COLORS.TEXT.PRIMARY)}>44</span>
+        </div>
+        <p>
+          The page you are trying to search has been <br /> moved to another universe.
+        </p>
+        <button
+          className={cn(COLORS.BG.PRIMARY, COLORS.TEXT.WHITE)}
+          type="button"
+          onClick={handleRedirect}
+        >
+          GET ME HOME
+        </button>
+      </div>
+  );
 }

@@ -10,6 +10,11 @@ const nextConfig: NextConfig = {
         hostname: 'rickandmortyapi.com',
         pathname: '/api/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'staticdelivery.nexusmods.com',
+        pathname: '/mods/**',
+      },
     ],
   },
 };
