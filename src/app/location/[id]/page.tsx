@@ -1,12 +1,12 @@
 import { getCharsByIds, getLocationById } from "@/src/api/services";
 import { SkeletonGrid } from "@/src/components/characters/characterCard/skeletonCard";
 import { CharacterList } from "@/src/components/characters/characterList/CharacterList";
-import { IChar } from "@/src/types/IChar";
 import { Suspense } from "react";
 
 async function LocationContent({ id }: { id: number }) {
   const location = await getLocationById(id);
-  const characters: IChar[] = await getCharsByIds(location.residents);
+  const data = await getCharsByIds(location.residents);
+  const characters = Array.isArray(data) ? data : [data];
 
   return <CharacterList characters={characters} />;
 }

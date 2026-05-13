@@ -1,20 +1,6 @@
 "use client";
 import { Accordion } from "@/src/components/ui/accordion";
 import { AccordionComponent } from "@/src/components/accordionComponents/accordionComponent";
-import { COLORS } from "@/src/constatnts/colors";
-
-const styles = `
-  h-10 w-auto
-  ${COLORS.TEXT.PRIMARY}
-  ${COLORS.BORDER.PRIMARY}
-  hover:${COLORS.BG.PRIMARY}
-  hover:${COLORS.TEXT.WHITE}
-  transition-all
-  border
-  rounded-[5px]
-  px-2
-  py-1
-`;
 
 const filters = [
   [
@@ -103,7 +89,6 @@ export const Filters = () => {
       {filters.map((filter) => (
         <AccordionComponent
           key={filter[0].title}
-          styles={styles}
           items={filter}
         />
       ))}

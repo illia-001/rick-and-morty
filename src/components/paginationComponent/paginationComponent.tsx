@@ -16,6 +16,7 @@ export function PaginationComponent({ totalPages }: { totalPages: number }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const currentPage = Number(searchParams.get("page")) || 1;
+  const isVisible = totalPages > 1;
 
   const createPageURL = (pageNumber: number | string) => {
     const params = new URLSearchParams(searchParams);
@@ -25,7 +26,7 @@ export function PaginationComponent({ totalPages }: { totalPages: number }) {
 
   return (
     <div className="col-span-full">
-      <Pagination className={`my-8 max-w-full`}>
+      {isVisible && <Pagination className={`my-8 max-w-full`}>
         <PaginationContent className="max-w-full h-full justify-center gap-x-3">
           <PaginationItem>
             <PaginationPrevious
@@ -88,7 +89,7 @@ export function PaginationComponent({ totalPages }: { totalPages: number }) {
             />
           </PaginationItem>
         </PaginationContent>
-      </Pagination>
+      </Pagination>}
     </div>
   );
 }

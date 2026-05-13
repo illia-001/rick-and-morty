@@ -23,7 +23,7 @@ export const SearchBar = () => {
       params.delete("name");
     }
 
-    router.push(`/characters/?${params.toString()}`);
+    router.push(`/?${params.toString()}`);
   };
 
   return (
