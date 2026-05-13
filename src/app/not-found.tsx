@@ -20,11 +20,6 @@ export default function NotFoundPage() {
         universe.
       </p>
       <button
-        className={cn(
-          `border-2 hover:${COLORS.BORDER.PRIMARY} hover:${COLORS.BG.PRIMARY} hover:${COLORS.TEXT.WHITE} transition-all cursor-pointer`,
-          COLORS.BORDER.PRIMARY,
-          COLORS.TEXT.PRIMARY,
-        )}
         type="button"
         onClick={handleRedirect}
       >
