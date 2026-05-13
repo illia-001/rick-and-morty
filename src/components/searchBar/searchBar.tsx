@@ -1,11 +1,10 @@
 "use client";
 import { COLORS } from "@/src/constatnts/colors";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 export const SearchBar = () => {
   const router = useRouter();
-  const searchParams = useSearchParams();
   const [query, setQuery] = useState("");
 
   const handleSetQuery = (newQuery: string) => {
@@ -15,15 +14,10 @@ export const SearchBar = () => {
   const handleSubmit = (event: React.SubmitEvent<HTMLFormElement>) => {
     event.preventDefault();
     const normalizedQuery = query.toLowerCase();
-    const params = new URLSearchParams(searchParams);
 
     if (normalizedQuery.trim()) {
-      params.set("name", normalizedQuery.trim());
-    } else {
-      params.delete("name");
+      router.push(`/?name=${normalizedQuery.trim()}`)
     }
-
-    router.push(`/?${params.toString()}`);
   };
 
   return (
