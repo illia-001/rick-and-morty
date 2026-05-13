@@ -1,14 +1,14 @@
 import Image from "next/image";
-import { getCharById } from "../../api/services";
 import { IChar } from "@/src/types/IChar";
 import { getStatusStyle } from "@/src/utils/getStatusStyle";
 import { COLORS } from "@/src/constatnts/colors";
 import { Metadata } from "next";
+import { getCharById } from "@/src/api/services";
 
-export async function generateMetadata({ 
-  params 
-}: { 
-  params: Promise<{ id: number }> 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: number }>;
 }): Promise<Metadata> {
   const p = await params;
   const character = await getCharById(p.id);
