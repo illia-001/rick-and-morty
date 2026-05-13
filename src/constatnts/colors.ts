@@ -16,6 +16,4 @@ export const COLORS = {
     GREEN: 'bg-green-700',
     RED: 'bg-red-700',
   },
-
-  SECONDARY: '',
 } as const;

@@ -10,11 +10,10 @@ import React from "react";
 import { COLORS } from "@/src/constatnts/colors";
 
 interface Props {
-  styles: string;
   items: { title: string; type: string }[];
 }
 
-export const AccordionComponent: React.FC<Props> = ({ styles, items }) => {
+export const AccordionComponent: React.FC<Props> = ({ items }) => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -30,7 +29,7 @@ export const AccordionComponent: React.FC<Props> = ({ styles, items }) => {
       params.delete(normalizedType);
     }
 
-    router.push(`/characters/?${params.toString()}`);
+    router.push(`/?${params.toString()}`);
   };
 
   return (
@@ -46,9 +45,16 @@ export const AccordionComponent: React.FC<Props> = ({ styles, items }) => {
             return (
               <button
                 key={item.title}
-                className={cn(styles, {
-                  [`${COLORS.BG.PRIMARY} ${COLORS.TEXT.WHITE}`]: isActive,
-                })}
+                className={cn(
+                  COLORS.BORDER.PRIMARY,
+                  COLORS.TEXT.PRIMARY,
+                  `hover:${COLORS.TEXT.WHITE}`,
+                  `hover:${COLORS.BG.PRIMARY}`,
+                  `h-10 w-auto transition-all border rounded-[5px] px-2 py-1 cursor-pointer`,
+                  {
+                    [`${COLORS.BG.PRIMARY} ${COLORS.TEXT.WHITE}`]: isActive,
+                  },
+                )}
                 onClick={() => handleSetGender(item.title, item.type)}
               >
                 {item.title}

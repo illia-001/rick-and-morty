@@ -15,13 +15,13 @@ export const CharacterCard: React.FC<Props> = ({ character }) => {
     <Link
       href={`/character/${id}`}
       className={`
-        hover:${COLORS.BORDER.PRIMARY}
         transition-all
         sm:hover:scale-110
         w-auto
-        h-full
+        lg:max-h-95
         border-2
         ${COLORS.BORDER.GRAY}
+        hover:${COLORS.BORDER.PRIMARY}
         rounded-xl
         overflow-hidden
         relative`}

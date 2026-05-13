@@ -59,12 +59,7 @@ export async function getCharById(id: number): Promise<IChar> {
 }
 
 export async function getCharsByIds(ids: string[]): Promise<IChar[]> {
-  if (ids.length === 0) {
-    return [];
-  }
-
-  const cleanIds = ids.map((link) => link.split("/").pop());
-  console.log(cleanIds);
+  const cleanIds = ids.map((link) => link.split("/").pop()).join(',');
 
   return fetcher(`character/${cleanIds}`);
 }
