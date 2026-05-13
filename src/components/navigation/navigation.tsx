@@ -3,7 +3,7 @@ import cn from "classnames";
 import styles from "./nav.module.scss";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { COLORS } from "@/src/constatnts/colors";
+import { COLORS } from "@/src/constants/colors";
 
 const style =
   "h-full block text-xl font-semibold text-[#0000008c] hover:text-black items-center flex";
@@ -34,11 +34,11 @@ const Navigation = () => {
           return (
             <li
               key={link.title}
-              className={cn("relative h-13", { [styles.active]: isActive }) }
+              className={cn("relative h-13", { [styles.active]: isActive })}
             >
               <Link
                 href={link.link}
-                className={cn(style, { [COLORS.TEXT.PRIMARY]: isActive }) }
+                className={cn(style, { [COLORS.TEXT.PRIMARY]: isActive })}
               >
                 {link.title}
               </Link>

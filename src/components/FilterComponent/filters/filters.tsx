@@ -1,6 +1,8 @@
 "use client";
 import { Accordion } from "@/src/components/ui/accordion";
 import { AccordionComponent } from "@/src/components/accordionComponents/accordionComponent";
+import { Suspense } from "react";
+import { FilterSkeleton } from "../filterSkeleton";
 
 const filters = [
   [
@@ -87,10 +89,7 @@ export const Filters = () => {
   return (
     <Accordion defaultValue={["Status"]} className="w-full lg:w-60">
       {filters.map((filter) => (
-        <AccordionComponent
-          key={filter[0].title}
-          items={filter}
-        />
+        <AccordionComponent key={filter[0].title} items={filter} />
       ))}
     </Accordion>
   );

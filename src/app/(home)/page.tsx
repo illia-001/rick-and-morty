@@ -7,8 +7,6 @@ import { getChars } from "@/src/api/services";
 import { SkeletonGrid } from "@/src/components/characters/characterCard/skeletonCard";
 import { Suspense } from "react";
 
-export const dynamic = "force-dynamic";
-
 async function CharactersContent({
   params,
 }: {
@@ -25,9 +23,17 @@ async function CharactersContent({
   const currentPage = Number(page) || 1;
 
   let data = null;
+  const filters = {
+    name,
+    status,
+    gender,
+    species,
+    page: currentPage,
+    type,
+  };
 
   try {
-    data = await getChars(name, status, gender, species, currentPage, type);
+    data = await getChars(filters);
   } catch (e) {
     console.error("Data fetching error:", e);
   }
@@ -51,14 +57,14 @@ async function CharactersContent({
 export default async function CharactersPage({
   searchParams,
 }: {
-  searchParams: {
+  searchParams: Promise<{
     name?: string;
     status?: TStatus;
     gender?: TGender;
     species?: TSpecies;
     page?: string;
     type?: string;
-  };
+  }>;
 }) {
   const params = await searchParams;
   const key = JSON.stringify(params);

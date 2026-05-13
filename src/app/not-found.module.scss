@@ -1,4 +1,4 @@
-.wrapper{
+.wrapper {
   position: absolute;
   margin: 0 auto;
   top: 50%;
@@ -9,72 +9,76 @@
   text-align: center;
   z-index: 4;
 
-span {
-  &:first-letter{
-  letter-spacing: 12vmax; 
+  span {
+    &:first-letter {
+      letter-spacing: 12vmax;
+    }
+    margin: 0 auto;
+    position: relative;
+    font-weight: 900;
+    font-size: clamp(7rem, 30vw + 1rem, 20.4rem);
+    display: block;
+    overflow: hidden;
+    width: fit-content;
+    height: max-content;
+    &:before {
+      content: "";
+      background-image: url("https://staticdelivery.nexusmods.com/mods/1151/images/528-0-1447526230.png");
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      animation: rotateIn 0.5s ease-out;
+    }
   }
-  margin: 0 auto;
-  position: relative;
-  font-weight: 900;
-  font-size: clamp(7rem, 30vw + 1rem, 20.4rem);
-  display: block;
-  overflow: hidden;
-  width: fit-content;
-  height: max-content;
-  &:before{
-    content:'';
-    background-image: url('https://staticdelivery.nexusmods.com/mods/1151/images/528-0-1447526230.png');
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;    
-    animation: rotateIn 0.5s ease-out;
-  }
-}
- p {
-  text-align: center;
-  font-size: 15px;
-  font-weight: 500;
-  margin-top: 0;
-  line-height: 22px;
+  p {
+    text-align: center;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 0;
+    line-height: 22px;
 
-  @media (min-width: 570px) {
-    font-size: 20px;
+    @media (min-width: 570px) {
+      font-size: 20px;
+    }
   }
- }
 
- button {
-    border: 0;
+  button {
     padding: 11px 22px;
+    border: 2px solid #2b7fff;
     border-radius: 14px;
-    color: #fff;
     margin-top: 15px;
     cursor: pointer;
     font-weight: 900;
- }
+    transition: all 150ms;
+    color: #2b7fff;
+
+    &:hover {
+      background-color: #2b7fff;
+      color: #fff;
+    }
+  }
 }
 
-
 @keyframes spin {
-  
   from {
-    transform: rotate( 0deg );
+    transform: rotate(0deg);
   }
-  
+
   to {
-    transform: rotate( -360deg );
+    transform: rotate(-360deg);
   }
 }
 
 @keyframes rotateIn {
   from {
-    transform: rotate( 0deg ) scale(0.2);
+    transform: rotate(0deg) scale(0.2);
     opacity: 0;
   }
   to {
-    transform: rotate( 360deg ) scale(1);
+    transform: rotate(360deg) scale(1);
     opacity: 1;
   }
 }

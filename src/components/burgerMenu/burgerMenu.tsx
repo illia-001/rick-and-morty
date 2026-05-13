@@ -1,7 +1,7 @@
 "use client";
 
-import { COLORS } from "@/src/constatnts/colors";
-import style from './menu.module.scss';
+import { COLORS } from "@/src/constants/colors";
+import style from "./menu.module.scss";
 import cn from "classnames";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -25,6 +25,10 @@ const BurgerMenu: React.FC<Props> = ({
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (!isOpen) {
+      return;
+    }
+
     function handleClickOutside(event: MouseEvent) {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
         setIsOpen(false);
@@ -36,15 +40,20 @@ const BurgerMenu: React.FC<Props> = ({
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [setIsOpen]);
+  }, [isOpen, setIsOpen]);
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname, setIsOpen]);
 
   return (
-    <div
+    <nav
       ref={menuRef}
       className={cn(style.container, "sm:hidden border-t", {
         [style.open]: isOpen,
         [style.closed]: !isOpen,
       })}
+      aria-hidden={!isOpen}
     >
       {navigation.map((link) => {
         const isActive =
@@ -62,7 +71,7 @@ const BurgerMenu: React.FC<Props> = ({
           </Link>
         );
       })}
-    </div>
+    </nav>
   );
 };
 

@@ -21,55 +21,43 @@ async function fetcher<T>(endpoint: string): Promise<T> {
 }
 
 export async function getChars(
-  query?: string,
+  filters: {name?: string,
   status?: TStatus,
   gender?: TGender,
   species?: TSpecies,
-  page: number = 1,
-  type?: string,
+  page: number,
+  type?: string,}
 ): Promise<ICharacterData> {
   const params = new URLSearchParams();
 
-  if (query?.trim()) {
-    params.set("name", query.trim());
-  }
+  Object.entries(filters).forEach(([Key, value]) => {
+    if (value) {
+      return params.set(Key, String(value))
+    }
+  })
 
-  if (status) {
-    params.set("status", status);
-  }
-
-  if (gender) {
-    params.set("gender", gender);
-  }
-  if (species) {
-    params.set("species", species);
-  }
-
-  if (type) {
-    params.set("type", type);
-  }
-
-  const url = `character/?${params.toString()}&page=${page}`;
+  const url = `character/?${params.toString()}`;
 
   return fetcher(url);
 }
 
 export async function getCharById(id: number): Promise<IChar> {
-  return fetcher(`character/${id}`);
+  return fetcher<IChar>(`character/${id}`);
 }
 
 export async function getCharsByIds(ids: string[]): Promise<IChar[]> {
   const cleanIds = ids.map((link) => link.split("/").pop()).join(',');
+  const data = await fetcher<IChar[] | IChar>(`character/${cleanIds}`);
 
-  return fetcher(`character/${cleanIds}`);
+  return Array.isArray(data) ? data : [data];
 }
 
 export async function getEpisodeById(id: number): Promise<IEpisode> {
-  return fetcher(`episode/${id}`);
+  return fetcher<IEpisode>(`episode/${id}`);
 }
 
 export async function getLocationById(id: number): Promise<ILocation> {
-  return fetcher(`location/${id}`);
+  return fetcher<ILocation>(`location/${id}`);
 }
 
 export async function getLocations(page: number = 1): Promise<ILocation[]> {

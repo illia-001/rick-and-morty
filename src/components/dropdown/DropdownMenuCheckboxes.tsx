@@ -14,7 +14,7 @@ import {
 import { DropdownItem } from "./dropdownItem";
 import { IEpisode } from "@/src/types/IEpisode";
 import { ILocation } from "@/src/types/ILocation";
-import { COLORS } from "@/src/constatnts/colors";
+import { COLORS } from "@/src/constants/colors";
 
 interface Props {
   items: IEpisode[] | ILocation[];

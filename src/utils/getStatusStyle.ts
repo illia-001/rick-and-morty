@@ -1,4 +1,4 @@
-import { COLORS } from "../constatnts/colors";
+import { COLORS } from "../constants/colors";
 
 export function getStatusStyle(status: string) {
   switch (status) {
@@ -11,5 +11,4 @@ export function getStatusStyle(status: string) {
     default:
       return COLORS.STATUS.GRAY;
   }
-
 }

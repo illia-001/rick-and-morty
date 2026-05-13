@@ -1,4 +1,5 @@
 "use client";
+
 import cn from "classnames";
 import {
   AccordionContent,
@@ -7,7 +8,7 @@ import {
 } from "@/src/components/ui/accordion";
 import { useRouter, useSearchParams } from "next/navigation";
 import React from "react";
-import { COLORS } from "@/src/constatnts/colors";
+import { COLORS } from "@/src/constants/colors";
 
 interface Props {
   items: { title: string; type: string }[];
@@ -29,7 +30,8 @@ export const AccordionComponent: React.FC<Props> = ({ items }) => {
       params.delete(normalizedType);
     }
 
-    router.push(`/?${params.toString()}`);
+    params.delete("page");
+    router.push(`?${params.toString()}`, {scroll: false});
   };
 
   return (
@@ -45,12 +47,11 @@ export const AccordionComponent: React.FC<Props> = ({ items }) => {
             return (
               <button
                 key={item.title}
+                aria-pressed
                 className={cn(
                   COLORS.BORDER.PRIMARY,
                   COLORS.TEXT.PRIMARY,
-                  `hover:${COLORS.TEXT.WHITE}`,
-                  `hover:${COLORS.BG.PRIMARY}`,
-                  `h-10 w-auto transition-all border rounded-[5px] px-2 py-1 cursor-pointer`,
+                  `hover:${COLORS.BORDER.PRIMARY} hover:${COLORS.BG.PRIMARY} hover:${COLORS.TEXT.WHITE} h-10 w-auto transition-all border rounded-[5px] px-2 py-1 cursor-pointer`,
                   {
                     [`${COLORS.BG.PRIMARY} ${COLORS.TEXT.WHITE}`]: isActive,
                   },
