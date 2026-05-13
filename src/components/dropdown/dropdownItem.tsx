@@ -6,7 +6,7 @@ import { DropdownMenuCheckboxItem } from "../ui/dropdown-menu";
 import { IEpisode } from "@/src/types/IEpisode";
 import { usePathname, useRouter } from "next/navigation";
 import { ILocation } from "@/src/types/ILocation";
-import { COLORS } from "@/src/constatnts/colors";
+import { COLORS } from "@/src/constants/colors";
 
 const getCleanPath = (pathName: string) => {
   return pathName.split("/").slice(0, -1).join("");

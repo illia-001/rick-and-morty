@@ -5,8 +5,7 @@ import { Suspense } from "react";
 
 async function LocationContent({ id }: { id: number }) {
   const location = await getLocationById(id);
-  const data = await getCharsByIds(location.residents);
-  const characters = Array.isArray(data) ? data : [data];
+  const characters = await getCharsByIds(location.residents);
 
   return <CharacterList characters={characters} />;
 }

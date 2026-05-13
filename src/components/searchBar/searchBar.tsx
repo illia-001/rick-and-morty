@@ -1,11 +1,14 @@
 "use client";
-import { COLORS } from "@/src/constatnts/colors";
-import { useRouter } from "next/navigation";
+
+import cn from "classnames";
+import { COLORS } from "@/src/constants/colors";
+import { useRouter, useSearchParams } from "next/navigation";
 import React, { useState } from "react";
 
 export const SearchBar = () => {
   const router = useRouter();
   const [query, setQuery] = useState("");
+  const params = useSearchParams();
 
   const handleSetQuery = (newQuery: string) => {
     setQuery(newQuery);
@@ -14,10 +17,13 @@ export const SearchBar = () => {
   const handleSubmit = (event: React.SubmitEvent<HTMLFormElement>) => {
     event.preventDefault();
     const normalizedQuery = query.toLowerCase();
+    const newParams = new URLSearchParams(params);
 
     if (normalizedQuery.trim()) {
-      router.push(`/?name=${normalizedQuery.trim()}`)
+      newParams.delete("page");
+      newParams.set("name", normalizedQuery.trim());
     }
+    router.push(`?${newParams.toString()}`);
   };
 
   return (
@@ -37,7 +43,11 @@ export const SearchBar = () => {
         />
         <button
           type="submit"
-          className={`${COLORS.BORDER.PRIMARY} ${COLORS.TEXT.PRIMARY} hover:${COLORS.BG.PRIMARY} hover:${COLORS.TEXT.WHITE}  border-2 h-12 w-full rounded-xl sm:w-22 text-[20px] transition-colors cursor-pointer`}
+          className={cn(
+            COLORS.BORDER.PRIMARY,
+            COLORS.TEXT.PRIMARY,
+            `border-2 h-12 w-full rounded-xl sm:w-22 text-[20px] hover:${COLORS.BORDER.PRIMARY} hover:${COLORS.BG.PRIMARY} hover:${COLORS.TEXT.WHITE} transition-all cursor-pointer`,
+          )}
         >
           Search
         </button>

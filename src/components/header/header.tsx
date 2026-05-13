@@ -4,7 +4,7 @@ import Navigation from "../navigation/navigation";
 import { useState } from "react";
 import { IoClose, IoMenu } from "react-icons/io5";
 import BurgerMenu from "../burgerMenu/burgerMenu";
-import { COLORS } from "@/src/constatnts/colors";
+import { COLORS } from "@/src/constants/colors";
 
 const styles =
   "h-full block text-xl font-semibold text-[#0000008c] hover:text-black items-center flex";

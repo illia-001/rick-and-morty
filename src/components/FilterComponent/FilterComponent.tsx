@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { Filters } from "./filters/filters";
-import { COLORS } from "@/src/constatnts/colors";
+import { COLORS } from "@/src/constants/colors";
 
 const FilterComponent = () => {
   return (

@@ -1,12 +1,12 @@
 import { getLocationById, getLocations } from "../../../api/services";
 import { DropdownMenuCheckboxes } from "@/src/components/dropdown/DropdownMenuCheckboxes";
-import { COLORS } from "../../../constatnts/colors";
+import { COLORS } from "../../../constants/colors";
 import { Metadata } from "next";
 
-export async function generateMetadata({ 
-  params 
-}: { 
-  params: Promise<{ id: string }> 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
 }): Promise<Metadata> {
   const p = await params;
   const location = await getLocationById(Number(p.id));

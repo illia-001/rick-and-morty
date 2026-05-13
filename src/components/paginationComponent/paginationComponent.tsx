@@ -1,6 +1,6 @@
 "use client";
 
-import { COLORS } from "@/src/constatnts/colors";
+import { COLORS } from "@/src/constants/colors";
 import {
   Pagination,
   PaginationContent,
@@ -26,70 +26,74 @@ export function PaginationComponent({ totalPages }: { totalPages: number }) {
 
   return (
     <div className="col-span-full">
-      {isVisible && <Pagination className={`my-8 max-w-full`}>
-        <PaginationContent className="max-w-full h-full justify-center gap-x-3">
-          <PaginationItem>
-            <PaginationPrevious
-              size="xl"
-              href={currentPage <= 1 ? "#" : createPageURL(currentPage - 1)}
-              className={
-                currentPage <= 1 ? "pointer-events-none opacity-50" : ""
-              }
-            />
-          </PaginationItem>
-
-          {currentPage > 2 && (
+      {isVisible && (
+        <Pagination className={`my-8 max-w-full`}>
+          <PaginationContent className="max-w-full h-full justify-center gap-x-3">
             <PaginationItem>
-              <PaginationLink size="xl" href={createPageURL(1)}>
-                1
-              </PaginationLink>
+              <PaginationPrevious
+                size="xl"
+                href={currentPage <= 1 ? "#" : createPageURL(currentPage - 1)}
+                className={
+                  currentPage <= 1 ? "pointer-events-none opacity-50" : ""
+                }
+              />
             </PaginationItem>
-          )}
 
-          {currentPage > 3 && <PaginationEllipsis />}
-
-          {Array.from({ length: 3 }, (_, i) => currentPage - 1 + i)
-            .filter((page) => page > 0 && page < totalPages)
-            .map((page) => (
-              <PaginationItem key={page}>
-                <PaginationLink
-                  size="xl"
-                  href={createPageURL(page)}
-                  isActive={currentPage === page}
-                  className={`${currentPage === page ? [`${COLORS.BG.PRIMARY} ${COLORS.TEXT.WHITE}`] : ""}`}
-                >
-                  {page}
+            {currentPage > 2 && (
+              <PaginationItem>
+                <PaginationLink size="xl" href={createPageURL(1)}>
+                  1
                 </PaginationLink>
               </PaginationItem>
-            ))}
+            )}
 
-          {currentPage < totalPages - 2 && <PaginationEllipsis />}
+            {currentPage > 3 && <PaginationEllipsis />}
 
-          <PaginationItem>
-            <PaginationLink
-              href={createPageURL(totalPages)}
-              className={`${currentPage === totalPages ? [`${COLORS.BG.PRIMARY} ${COLORS.TEXT.WHITE}`] : ""}`}
-              size="xl"
-            >
-              {totalPages}
-            </PaginationLink>
-          </PaginationItem>
+            {Array.from({ length: 3 }, (_, i) => currentPage - 1 + i)
+              .filter((page) => page > 0 && page < totalPages)
+              .map((page) => (
+                <PaginationItem key={page}>
+                  <PaginationLink
+                    size="xl"
+                    href={createPageURL(page)}
+                    isActive={currentPage === page}
+                    className={`${currentPage === page ? [`${COLORS.BG.PRIMARY} ${COLORS.TEXT.WHITE}`] : ""}`}
+                  >
+                    {page}
+                  </PaginationLink>
+                </PaginationItem>
+              ))}
 
-          <PaginationItem>
-            <PaginationNext
-              size="xl"
-              href={
-                currentPage >= totalPages ? "#" : createPageURL(currentPage + 1)
-              }
-              className={
-                currentPage >= totalPages
-                  ? "pointer-events-none opacity-50"
-                  : ""
-              }
-            />
-          </PaginationItem>
-        </PaginationContent>
-      </Pagination>}
+            {currentPage < totalPages - 2 && <PaginationEllipsis />}
+
+            <PaginationItem>
+              <PaginationLink
+                href={createPageURL(totalPages)}
+                className={`${currentPage === totalPages ? [`${COLORS.BG.PRIMARY} ${COLORS.TEXT.WHITE}`] : ""}`}
+                size="xl"
+              >
+                {totalPages}
+              </PaginationLink>
+            </PaginationItem>
+
+            <PaginationItem>
+              <PaginationNext
+                size="xl"
+                href={
+                  currentPage >= totalPages
+                    ? "#"
+                    : createPageURL(currentPage + 1)
+                }
+                className={
+                  currentPage >= totalPages
+                    ? "pointer-events-none opacity-50"
+                    : ""
+                }
+              />
+            </PaginationItem>
+          </PaginationContent>
+        </Pagination>
+      )}
     </div>
   );
 }
