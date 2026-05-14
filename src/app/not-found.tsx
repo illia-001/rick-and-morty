@@ -1,7 +1,7 @@
 "use client";
 
 import cn from "classnames";
-import { COLORS } from "../constants/colors";
+import { UI } from "../constants/colors";
 import styles from "./not-found.module.scss";
 import { redirect } from "next/navigation";
 
@@ -13,7 +13,7 @@ export default function NotFoundPage() {
   return (
     <div className={styles.wrapper}>
       <div>
-        <span className={cn(COLORS.TEXT.PRIMARY)}>44</span>
+        <span className={cn(UI.TEXT.ACCENT)}>44</span>
       </div>
       <p>
         The page you are trying to search has been <br /> moved to another

@@ -1,6 +1,6 @@
 import { getLocationById, getLocations } from "../../../api/services";
 import { DropdownMenuCheckboxes } from "@/src/components/dropdown/DropdownMenuCheckboxes";
-import { COLORS } from "../../../constants/colors";
+import { UI } from "../../../constants/colors";
 import { Metadata } from "next";
 
 export async function generateMetadata({
@@ -39,7 +39,7 @@ export default async function LocationLayout({
         <div className="col-span-12 text-center">
           <h1 className="text-3xl font-bold text-center mb-4">
             Location:
-            <span className={`${COLORS.TEXT.PRIMARY} ml-2`}>{name}</span>
+            <span className={`${UI.TEXT.ACCENT} ml-2`}>{name}</span>
           </h1>
           <h2 className="mb-2">Dimention: {dimension}</h2>
           <p className="text-lg mb-4">Type: {type}</p>

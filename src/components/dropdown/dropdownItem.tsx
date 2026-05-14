@@ -6,7 +6,7 @@ import { DropdownMenuCheckboxItem } from "../ui/dropdown-menu";
 import { IEpisode } from "@/src/types/IEpisode";
 import { usePathname, useRouter } from "next/navigation";
 import { ILocation } from "@/src/types/ILocation";
-import { COLORS } from "@/src/constants/colors";
+import { UI } from "@/src/constants/colors";
 
 const getCleanPath = (pathName: string) => {
   return pathName.split("/").slice(0, -1).join("");
@@ -38,7 +38,7 @@ export const DropdownItem: React.FC<Props> = ({ item, onChange }) => {
       checked={isChecked}
       onClick={() => handleChangeEpisode(item)}
       className={cn("h-auto rounded-none text-base px-2 mb-0.5 border-b", {
-        [`${COLORS.TEXT.PRIMARY}`]: isChecked,
+        [`${UI.TEXT.ACCENT}`]: isChecked,
       })}
     >
       {item.name}

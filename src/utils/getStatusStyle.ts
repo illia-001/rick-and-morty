@@ -1,14 +1,14 @@
-import { COLORS } from "../constants/colors";
+import { UI } from "../constants/colors";
 
 export function getStatusStyle(status: string) {
   switch (status) {
     case "Alive":
-      return COLORS.STATUS.GREEN;
+      return UI.STATUS.GREEN;
 
     case "Dead":
-      return COLORS.STATUS.RED;
+      return UI.STATUS.RED;
 
     default:
-      return COLORS.STATUS.GRAY;
+      return UI.STATUS.GRAY;
   }
 }

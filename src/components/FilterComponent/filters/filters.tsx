@@ -1,8 +1,9 @@
 "use client";
+
+import cn from "classnames";
 import { Accordion } from "@/src/components/ui/accordion";
 import { AccordionComponent } from "@/src/components/accordionComponents/accordionComponent";
-import { Suspense } from "react";
-import { FilterSkeleton } from "../filterSkeleton";
+import { UI } from "@/src/constants/colors";
 
 const filters = [
   [
@@ -78,16 +79,15 @@ const filters = [
       title: "Cronenberg",
       type: "Species",
     },
-    {
-      title: "Planet",
-      type: "Type",
-    },
   ],
 ];
 
 export const Filters = () => {
   return (
-    <Accordion defaultValue={["Status"]} className="w-full lg:w-60">
+    <Accordion
+      defaultValue={["Status"]}
+      className={cn(UI.BORDER.GRAY, "w-full lg:w-60")}
+    >
       {filters.map((filter) => (
         <AccordionComponent key={filter[0].title} items={filter} />
       ))}

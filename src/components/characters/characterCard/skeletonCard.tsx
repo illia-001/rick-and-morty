@@ -1,15 +1,14 @@
+import cn from "classnames";
 import { Skeleton } from "@/src/components/ui/skeleton";
+import { UI } from "@/src/constants/colors";
 
 function SkeletonCard() {
   return (
     <div
-      className=" w-auto
-        h-full
-        border-2
-        border-gray-300
-        rounded-xl
-        overflow-hidden
-        relative"
+      className={cn(
+        UI.BORDER.GRAY,
+        "w-auto h-full border-2 rounded-xl overflow-hidden relative",
+      )}
     >
       <div className="relative aspect-square w-full">
         <Skeleton className=" h-full rounded-none" />

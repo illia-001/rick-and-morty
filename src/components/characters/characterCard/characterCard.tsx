@@ -1,5 +1,5 @@
 import cn from "classnames";
-import { COLORS } from "@/src/constants/colors";
+import { UI } from "@/src/constants/colors";
 import { IChar } from "@/src/types/IChar";
 import { getStatusStyle } from "@/src/utils/getStatusStyle";
 import Image from "next/image";
@@ -15,12 +15,17 @@ export const CharacterCard: React.FC<Props> = ({ character }) => {
   return (
     <Link
       href={`/character/${id}`}
-      className={`w-auto lg:max-h-95 border-2 ${COLORS.BORDER.GRAY} hover:${COLORS.BORDER.PRIMARY} sm:hover:scale-110 transition-all cursor-pointer rounded-xl overflow-hidden relative`}
+      className={cn(
+        UI.BORDER.GRAY,
+        UI.BORDER.HOVER,
+        `w-auto lg:max-h-95 border-2 sm:hover:scale-105 transition-all cursor-pointer rounded-xl overflow-hidden relative`,
+      )}
     >
       <span
         className={cn(
           getStatusStyle(status),
-          `z-10 w-auto h-7 rounded-[5px] absolute top-1.5 right-1 ${COLORS.TEXT.WHITE} flex items-center font-bold px-2 py-1`,
+          UI.TEXT.WHITE,
+          `z-10 w-auto h-7 rounded-[5px] absolute top-1.5 right-1 flex items-center font-bold px-2 py-1`,
         )}
       >
         {status}

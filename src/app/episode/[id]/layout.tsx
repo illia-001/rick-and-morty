@@ -1,6 +1,6 @@
 import { getEpisodeById, getEpisodes } from "../../../api/services";
 import { DropdownMenuCheckboxes } from "@/src/components/dropdown/DropdownMenuCheckboxes";
-import { COLORS } from "../../../constants/colors";
+import { UI } from "../../../constants/colors";
 import { Metadata } from "next";
 
 export async function generateMetadata({
@@ -39,7 +39,7 @@ export default async function EpisodeLayout({
         <div className="col-span-12 text-center">
           <h1 className="text-3xl font-bold text-center mb-4">
             Episode name:
-            <span className={`${COLORS.TEXT.PRIMARY} ml-2`}>{name}</span>
+            <span className={`${UI.TEXT.ACCENT} ml-2`}>{name}</span>
           </h1>
           <p className="text-lg mb-4">Air date: {air_date}</p>
         </div>

@@ -1,6 +1,7 @@
 "use client";
 
-import { COLORS } from "@/src/constants/colors";
+import cn from "classnames";
+import { UI } from "@/src/constants/colors";
 import {
   Pagination,
   PaginationContent,
@@ -33,9 +34,9 @@ export function PaginationComponent({ totalPages }: { totalPages: number }) {
               <PaginationPrevious
                 size="xl"
                 href={currentPage <= 1 ? "#" : createPageURL(currentPage - 1)}
-                className={
-                  currentPage <= 1 ? "pointer-events-none opacity-50" : ""
-                }
+                className={cn({
+                  "pointer-events-none opacity-50": currentPage <= 1,
+                })}
               />
             </PaginationItem>
 
@@ -57,7 +58,10 @@ export function PaginationComponent({ totalPages }: { totalPages: number }) {
                     size="xl"
                     href={createPageURL(page)}
                     isActive={currentPage === page}
-                    className={`${currentPage === page ? [`${COLORS.BG.PRIMARY} ${COLORS.TEXT.WHITE}`] : ""}`}
+                    className={cn({
+                      [`${UI.BG.ACCENT} ${UI.TEXT.WHITE}`]:
+                        currentPage === page,
+                    })}
                   >
                     {page}
                   </PaginationLink>
@@ -69,7 +73,10 @@ export function PaginationComponent({ totalPages }: { totalPages: number }) {
             <PaginationItem>
               <PaginationLink
                 href={createPageURL(totalPages)}
-                className={`${currentPage === totalPages ? [`${COLORS.BG.PRIMARY} ${COLORS.TEXT.WHITE}`] : ""}`}
+                className={cn({
+                  [`${UI.BG.ACCENT} ${UI.TEXT.WHITE}`]:
+                    currentPage === totalPages,
+                })}
                 size="xl"
               >
                 {totalPages}
@@ -84,11 +91,9 @@ export function PaginationComponent({ totalPages }: { totalPages: number }) {
                     ? "#"
                     : createPageURL(currentPage + 1)
                 }
-                className={
-                  currentPage >= totalPages
-                    ? "pointer-events-none opacity-50"
-                    : ""
-                }
+                className={cn({
+                  "pointer-events-none opacity-50": currentPage >= totalPages,
+                })}
               />
             </PaginationItem>
           </PaginationContent>

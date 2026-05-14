@@ -1,7 +1,7 @@
 "use client";
 
 import cn from "classnames";
-import { COLORS } from "@/src/constants/colors";
+import { UI } from "@/src/constants/colors";
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { useState } from "react";
 
@@ -37,16 +37,18 @@ export const SearchBar = () => {
           defaultValue={query}
           type="text"
           name="name"
-          className={`border-2 ${COLORS.BORDER.PRIMARY} rounded-xl h-12 w-full sm:w-107 px-4`}
+          className={`border-2 ${UI.BORDER.ACCENT} rounded-xl h-12 w-full sm:w-107 px-4`}
           placeholder="Search for characters"
           onChange={(event) => handleSetQuery(event.target.value)}
         />
         <button
           type="submit"
           className={cn(
-            COLORS.BORDER.PRIMARY,
-            COLORS.TEXT.PRIMARY,
-            `border-2 h-12 w-full rounded-xl sm:w-22 text-[20px] hover:${COLORS.BORDER.PRIMARY} hover:${COLORS.BG.PRIMARY} hover:${COLORS.TEXT.WHITE} transition-all cursor-pointer`,
+            UI.BORDER.ACCENT,
+            UI.BG.HOVER,
+            UI.TEXT.ACCENT,
+            UI.TEXT.HOVER.WHITE,
+            `border-2 h-12 w-full rounded-xl sm:w-22 text-[20px] transition-all cursor-pointer`,
           )}
         >
           Search
