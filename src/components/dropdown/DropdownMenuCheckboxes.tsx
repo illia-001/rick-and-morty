@@ -14,7 +14,7 @@ import {
 import { DropdownItem } from "./dropdownItem";
 import { IEpisode } from "@/src/types/IEpisode";
 import { ILocation } from "@/src/types/ILocation";
-import { COLORS } from "@/src/constants/colors";
+import { UI } from "@/src/constants/colors";
 
 interface Props {
   items: IEpisode[] | ILocation[];
@@ -33,7 +33,7 @@ export const DropdownMenuCheckboxes: React.FC<Props> = ({
   return (
     <div className="lg:col-span-3 col-span-full mb-7">
       <div
-        className={`sticky top-25 flex flex-col items-center ${COLORS.BORDER.PRIMARY} border-2 p-4 rounded-xl`}
+        className={`sticky top-25 flex flex-col items-center ${UI.BORDER.ACCENT} border-2 p-4 rounded-xl`}
       >
         <span className="text-2xl mb-4">Pick {title}</span>
         <DropdownMenu>

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { IChar } from "@/src/types/IChar";
 import { getStatusStyle } from "@/src/utils/getStatusStyle";
-import { COLORS } from "@/src/constants/colors";
+import { UI } from "@/src/constants/colors";
 import { Metadata } from "next";
 import { getCharById } from "@/src/api/services";
 
@@ -55,7 +55,7 @@ const CharacterPage = async ({
       <h1 className="text-2xl font-bold text-center">{name}</h1>
       <Image priority width={300} height={300} src={image} alt={name} />
       <div
-        className={`${getStatusStyle(status)} w-full ${COLORS.TEXT.WHITE} font-bold h-8 rounded-[5px] flex justify-center items-center `}
+        className={`${getStatusStyle(status)} w-full ${UI.TEXT.WHITE} font-bold h-8 rounded-[5px] flex justify-center items-center `}
       >
         {status}
       </div>

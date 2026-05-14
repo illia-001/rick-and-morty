@@ -1,25 +1,33 @@
 "use client";
 
-import { COLORS } from "@/src/constants/colors";
+import { UI } from "@/src/constants/colors";
 import style from "./menu.module.scss";
 import cn from "classnames";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useRef } from "react";
 
+const navigation = [
+  {
+    link: "/",
+    title: "Characters",
+  },
+  {
+    link: "/episode/1",
+    title: "Episodes",
+  },
+  {
+    link: "/location/1",
+    title: "Locations",
+  },
+];
+
 interface Props {
-  navigation: { link: string; title: string }[];
   isOpen: boolean;
   setIsOpen: (value: boolean) => void;
-  styles: string;
 }
 
-const BurgerMenu: React.FC<Props> = ({
-  navigation,
-  isOpen,
-  setIsOpen,
-  styles,
-}) => {
+const BurgerMenu: React.FC<Props> = ({ isOpen, setIsOpen }) => {
   const pathname = usePathname();
 
   const menuRef = useRef<HTMLDivElement>(null);
@@ -55,22 +63,30 @@ const BurgerMenu: React.FC<Props> = ({
       })}
       aria-hidden={!isOpen}
     >
-      {navigation.map((link) => {
-        const isActive =
-          pathname.replace(/\/\d+$/, "") === link.link.replace(/\/\d+$/, "");
+      <ul className="flex w-full justify-center gap-2 sm:gap-8">
+        {navigation.map((link) => {
+          const isActive =
+            pathname.replace(/\/\d+$/, "") === link.link.replace(/\/\d+$/, "");
 
-        return (
-          <Link
-            key={link.title}
-            href={link.link}
-            className={cn(styles, "py-4 px-2", {
-              [`${COLORS.TEXT.PRIMARY}`]: isActive,
-            })}
-          >
-            {link.title}
-          </Link>
-        );
-      })}
+          return (
+            <li key={link.title}>
+              <Link
+                href={link.link}
+                className={cn(
+                  UI.TEXT.SECONDARY,
+                  UI.TEXT.HOVER.PRIMARY,
+                  "h-full text-xl font-semibold items-center flex py-4 px-2",
+                  {
+                    [`${UI.TEXT.ACCENT}`]: isActive,
+                  },
+                )}
+              >
+                {link.title}
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
     </nav>
   );
 };

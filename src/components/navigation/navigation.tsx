@@ -3,10 +3,10 @@ import cn from "classnames";
 import styles from "./nav.module.scss";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { COLORS } from "@/src/constants/colors";
+import { UI } from "@/src/constants/colors";
 
 const style =
-  "h-full block text-xl font-semibold text-[#0000008c] hover:text-black items-center flex";
+  `h-full block text-xl font-semibold ${UI.TEXT.SECONDARY} hover:text-black items-center flex`;
 const navigation = [
   {
     link: "/",
@@ -38,7 +38,7 @@ const Navigation = () => {
             >
               <Link
                 href={link.link}
-                className={cn(style, { [COLORS.TEXT.PRIMARY]: isActive })}
+                className={cn(style, { [UI.TEXT.ACCENT]: isActive })}
               >
                 {link.title}
               </Link>
