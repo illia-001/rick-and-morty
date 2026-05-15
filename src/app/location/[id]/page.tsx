@@ -5,9 +5,17 @@ import { Suspense } from "react";
 
 async function LocationContent({ id }: { id: number }) {
   const location = await getLocationById(id);
-  const characters = await getCharsByIds(location.residents);
+  const residents = await getCharsByIds(location.residents);
 
-  return <CharacterList characters={characters} />;
+  if (!location || !location.residents || location.residents.length === 0) {
+    return (
+      <h1 className="text-center col-span-full lg:col-span-9 font-bold text-2xl">
+        No one&apos;s here!
+      </h1>
+    );
+  }
+
+  return <CharacterList characters={residents} />;
 }
 
 export default async function Location({
