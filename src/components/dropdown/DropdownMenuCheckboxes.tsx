@@ -31,7 +31,7 @@ export const DropdownMenuCheckboxes: React.FC<Props> = ({
   const [isClicked, setIsClicked] = React.useState(false);
 
   return (
-    <div className="lg:col-span-3 col-span-full mb-7">
+    <div className="lg:col-span-3 col-span-full mb-7 lg:m-0">
       <div
         className={`sticky top-25 flex flex-col items-center ${UI.BORDER.ACCENT} border-2 p-4 rounded-xl`}
       >

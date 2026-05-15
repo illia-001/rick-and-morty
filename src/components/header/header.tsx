@@ -22,12 +22,12 @@ export default function Header() {
           },
         )}
       >
-        <div className="flex justify-between mx-auto items-center px-4 h-full max-w-300">
+        <div className="flex justify-between mx-auto items-center px-6 sm:px-9 h-full max-w-300">
           <Link
             href={"/"}
-            className="text-2xl font-semibold flex gap-2 flex-nowrap"
+            className="text-2xl font-semibold flex gap-2 flex-wrap"
           >
-            Rick & Morty
+            Rick&Morty
             <strong className={`${UI.TEXT.ACCENT} p-0, m-0`}>WiKi</strong>
           </Link>
           <div className="sm:hidden cursor-pointer">
