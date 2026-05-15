@@ -18,7 +18,7 @@ export const CharacterCard: React.FC<Props> = ({ character }) => {
       className={cn(
         UI.BORDER.GRAY,
         UI.BORDER.HOVER,
-        `w-auto lg:max-h-95 border-2 sm:hover:scale-105 transition-all cursor-pointer rounded-xl overflow-hidden relative`,
+        `w-auto lg:max-h-100 border-2 sm:hover:scale-105 transition-all cursor-pointer rounded-xl overflow-hidden relative`,
       )}
     >
       <span

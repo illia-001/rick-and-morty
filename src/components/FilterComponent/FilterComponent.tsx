@@ -7,7 +7,7 @@ import { UI } from "@/src/constants/colors";
 
 const FilterComponent = () => {
   return (
-    <div className="mb-7 col-span-full lg:col-span-3">
+    <div className="mb-7 col-span-full lg:col-span-3 lg:m-0">
       <div className="sticky top-25">
         <div
           className={cn(
