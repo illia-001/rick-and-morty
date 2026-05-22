@@ -1,6 +1,8 @@
-# Rick and Morty Explorer 🌌
+# Rick and Morty Explorer
 
 A project built on **Next.js 14+** that uses [The Rick and Morty API](https://rickandmortyapi.com/) to display a database of characters, locations, and episodes from the animated series.
+
+## Preview - [DEMO](https://rick-and-morty-plum-three.vercel.app/)
 
 ## Tech Stack
 
